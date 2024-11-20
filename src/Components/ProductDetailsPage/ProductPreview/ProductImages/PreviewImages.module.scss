@@ -1,0 +1,22 @@
+@import "src/Styles/mixins";
+
+.otherImages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 540px;
+}
+
+@media (max-width: 1400px) {
+  .otherImages {
+    height: auto;
+    max-width: 500px;
+    flex-direction: row;
+  }
+}
+
+@include small {
+  .otherImages {
+    max-width: 100%;
+  }
+}

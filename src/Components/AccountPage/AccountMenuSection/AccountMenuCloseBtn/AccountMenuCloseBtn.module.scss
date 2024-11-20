@@ -1,0 +1,36 @@
+
+.closeBtn {
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 5px;
+  border-radius: 3px;
+  outline: dashed 2px transparent;
+  transition: outline-color .2s;
+
+  &:focus {
+    outline-color: var(--orange-degree2);
+  }
+}
+
+.closeBtn:hover>svg {
+  fill: var(--brown);
+}
+
+.closeBtn>svg {
+  fill: var(--black);
+  width: 22px;
+  height: 22px;
+  transition: fill .1s;
+}
+
+// Arabic styles
+[lang=ar] .closeBtn {
+  right: auto;
+  left: 10px;
+}

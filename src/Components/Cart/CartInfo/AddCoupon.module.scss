@@ -1,0 +1,97 @@
+@import "src/Styles/mixins";
+
+.couponContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@include large {
+  .couponContainer {
+    width: 300px;
+    flex-direction: column;
+  }
+}
+
+@include small {
+  .couponContainer {
+    width: 100%;
+  }
+}
+
+.couponContainer>input {
+  display: block;
+  height: 56px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  outline: 1px solid var(--black);
+  border: 6px solid var(--website-bg);
+  transition: border-color .1s, background-color .1s .05s;
+
+  &:focus {
+    outline-color: #ff7b00;
+    background-color: rgba(255, 166, 0, .08);
+  }
+}
+
+@include large {
+  .couponContainer>input {
+    width: 100%;
+  }
+}
+
+@include small {
+  .couponContainer>input {
+    font-size: .8rem;
+    padding: 12px 20px;
+    height: 45px;
+  }
+}
+
+.couponContainer>input::placeholder {
+  color: var(--dark-gray);
+}
+
+.couponContainer>button {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  outline: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--white);
+  background: var(--dark-tomato);
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition: background .2s;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline-color: var(--tomato);
+    color: var(--very-dark-gray);
+    background: transparent;
+    color: var(--tomato);
+  }
+
+  &:not(:focus-visible):hover {
+    background: var(--tomato);
+  }
+
+  &:active {
+    scale: var(--button-active-scale);
+  }
+}
+
+@include large {
+  .couponContainer>button {
+    width: 100%;
+  }
+}
+
+@include small {
+  .couponContainer>button {
+    font-size: .8rem;
+    padding: 12px 20px;
+  }
+}

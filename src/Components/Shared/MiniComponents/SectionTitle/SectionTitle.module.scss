@@ -1,0 +1,54 @@
+@import "src/Styles/mixins";
+
+.sectionTitle .event {
+  color: var(--dark-tomato);
+  margin-inline-start: 36px;
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.sectionTitle.type2 .event {
+  color: var(--black);
+  font-weight: 500;
+}
+
+@include small {
+  .sectionTitle .event {
+    font-size: .9rem;
+  }
+}
+
+.sectionTitle .event::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 40px;
+  background: var(--dark-tomato);
+  border-radius: 4px;
+}
+
+.sectionTitle b {
+  display: block;
+  color: var(--black);
+  letter-spacing: 1.4px;
+  font: 600 2.25rem "Inter", sans-serif;
+  height: auto;
+  max-width: 400px;
+}
+
+@include small {
+  .sectionTitle b {
+    font-size: 1.5rem;
+  }
+}
+
+// Arabic styles
+[lang=ar] .sectionTitle .event::before {
+  left: auto;
+  right: -36px;
+}

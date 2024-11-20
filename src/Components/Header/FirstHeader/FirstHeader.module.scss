@@ -1,0 +1,115 @@
+@import "src/Styles/mixins";
+
+.header {
+  background-color: var(--black);
+  color: var(--white);
+  min-height: 84px;
+  padding: 16px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: var(--container-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 22% 1fr;
+}
+
+@include large {
+  .container {
+    grid-template-columns: 0 1fr;
+  }
+}
+
+@include small {
+  .container {
+    width: var(--container-mobile-width);
+  }
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@include small {
+  .headerContent {
+    justify-content: flex-end;
+  }
+}
+
+.discount {
+  color: var(--secondary-white);
+}
+
+@include medium {
+  .discount {
+    font-size: .8rem;
+  }
+}
+
+@include small {
+  .discount {
+    display: none;
+  }
+}
+
+.discount a {
+  display: inline-block;
+  color: var(--secondary-white);
+  text-decoration: underline;
+  display: inline-block;
+  margin-inline-start: 8px;
+  padding: 2px 4px;
+  font-weight: bold;
+  user-select: none;
+  transition: opacity .3s;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: 0;
+
+  &:focus-visible {
+    transition: opacity .3s, var(--outline-transition);
+    outline: 2px dashed var(--orange-degree2);
+    outline-offset: 3px;
+    color: var(--orange-degree2);
+  }
+
+  &:hover {
+    animation: opacity 1s 1 forwards;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: .8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.headerContent .discount ::selection {
+  background-color: var(--white) !important;
+}
+
+// Multi language styles
+@media (max-width: 1300px) {
+  :where([lang=ar], [lang=ru], [lang=fr], [lang=hu]) .container {
+    grid-template-columns: 0 1fr;
+  }
+}
+
+// French styles
+[lang=fr] .discount {
+  font-size: .95rem;
+}
+
+@include medium {
+  [lang=fr] .discount {
+    font-size: .8rem;
+  }
+}

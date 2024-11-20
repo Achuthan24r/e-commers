@@ -1,0 +1,38 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input>label {
+  color: #595959;
+}
+
+.input .redStar::after {
+  content: "*";
+  color: var(--red);
+}
+
+.input>input {
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 12px;
+  background-color: var(--very-light-gray2);
+  border: solid 2px var(--very-light-gray2);
+  transition: border-color .2s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--medium-light-gray);
+  }
+
+  &[class=invalid] {
+    background-color: #ffdada;
+    border-color: var(--red);
+
+    &::placeholder {
+      color: var(--primary);
+    }
+  }
+}

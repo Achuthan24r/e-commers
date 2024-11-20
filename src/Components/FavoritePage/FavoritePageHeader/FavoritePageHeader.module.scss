@@ -1,0 +1,51 @@
+@import "src/Styles/mixins";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 30px;
+  margin-bottom: 50px;
+}
+
+.header>p {
+  font-size: 1.25rem;
+  text-wrap: nowrap;
+}
+
+@include small {
+  .header>p {
+    font-size: 1rem;
+  }
+}
+
+.header>button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: transparent;
+  border: 1px solid #00000080;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: background-color .1s, color .1s;
+
+  &:hover {
+    color: var(--white);
+    border-color: var(--very-dark-gray);
+    background-color: var(--very-dark-gray);
+  }
+
+  &:focus-visible {
+    outline-color: var(--very-dark-gray);
+  }
+}
+
+@include small {
+  .header>button {
+    padding: 12px 20px;
+    font-size: .9rem;
+  }
+}

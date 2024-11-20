@@ -1,0 +1,37 @@
+.pageHistory {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.page {
+  font-size: .875rem;
+  color: var(--dark-gray);
+}
+
+.page>a {
+  outline: none;
+  user-select: none;
+  color: var(--dark-gray);
+  transition: color .1s;
+
+  &:hover {
+    color: var(--black);
+  }
+
+  &:focus-visible {
+    color: var(--orange-degree2);
+    text-decoration: underline;
+  }
+}
+
+.page>span {
+  margin: 0 8px;
+  user-select: none;
+}
+
+.currentPage {
+  font-size: .875rem;
+  color: var(--black);
+}

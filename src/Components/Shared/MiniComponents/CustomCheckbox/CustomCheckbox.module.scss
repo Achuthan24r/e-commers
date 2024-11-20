@@ -1,0 +1,78 @@
+@import "src/Styles/mixins";
+
+.customInput {
+  display: inline-block;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 4px;
+  border: solid 1px var(--black);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  transition: opacity .2s;
+}
+
+.checkboxContainer:not(:has(:checked)):hover .customInput {
+  border-color: var(--primary);
+}
+
+.checkboxContainer:has(:checked):hover .customInput {
+  opacity: .8;
+}
+
+.customInput:has(:focus-visible) {
+  border-color: var(--orange-degree2);
+}
+
+.customInput:has(:checked) {
+  background-color: var(--tomato);
+  border: solid 1px var(--tomato);
+
+  &:has(:focus-visible) {
+    background-color: var(--orange-degree2);
+    border: solid 1px var(--orange-degree2);
+  }
+}
+
+.customInput>input {
+  -webkit-tap-highlight-color: transparent;
+  flex: 1;
+  opacity: 0;
+  cursor: pointer;
+  scale: 1.1 1;
+}
+
+.customInput>svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  fill: var(--white);
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.customInput:has(:checked)>svg {
+  opacity: 1;
+}
+
+.checkboxContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.checkboxContainer>label {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  padding-inline-start: 10px;
+}
+
+@include small {
+  .checkboxContainer>label {
+    font-size: .8rem;
+  }
+}

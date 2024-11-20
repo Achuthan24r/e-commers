@@ -1,0 +1,219 @@
+@import "src/Styles/mixins";
+
+.slide {
+  background-color: var(--black);
+  display: flex !important;
+  justify-content: flex-end;
+  padding: 20px 50px;
+  position: relative;
+}
+
+@include very-small {
+  .slide {
+    justify-content: center;
+  }
+}
+
+.slide img {
+  width: 250px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content {
+  position: absolute;
+  left: 40px;
+  top: 50px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+@include medium {
+  .content {
+    width: 220px;
+  }
+}
+
+@include small {
+  .content {
+    width: fit-content;
+    top: auto;
+    left: 20px;
+    bottom: 30px;
+  }
+}
+
+.nameProduct {
+  display: flex;
+  align-items: center;
+}
+
+@include small {
+  .nameProduct {
+    display: none;
+  }
+}
+
+.nameProduct img {
+  width: 40px;
+  height: 40px;
+  margin-inline-end: 20px;
+}
+
+.nameProduct strong {
+  color: var(--secondary-white);
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.discount {
+  width: 400px;
+  margin: 20px 0;
+  color: #fff;
+  letter-spacing: 1.92px;
+  font: 600 3rem/60px "Inter", sans-serif;
+}
+
+@include small {
+  .discount {
+    display: none;
+  }
+}
+
+@include medium {
+  .discount {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+}
+
+.shopNow {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+  font-size: 1rem;
+  color: var(--secondary-white);
+  width: fit-content;
+  position: relative;
+
+  &:hover::before {
+    height: calc(100% + 10px);
+    opacity: .3;
+    transition: height .2s, opacity .2s;
+  }
+}
+
+@include small {
+  .shopNow {
+    font-size: .9rem;
+  }
+}
+
+.shopNow::before {
+  background-color: var(--red);
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-white);
+  transition: height .3s, opacity .2s .2s;
+}
+
+.shopNow svg {
+  fill: var(--secondary-white);
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+  margin-top: 6px;
+  transform: scaleY(1.3);
+}
+
+@include small {
+  .shopNow svg {
+    margin-left: 6px;
+    transform: scaleY(1);
+  }
+}
+
+// Arabic styles
+[lang=ar] .slide {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+[lang=ar] .content {
+  direction: rtl;
+  left: auto;
+  right: 40px;
+  width: 400px;
+  align-items: flex-start;
+}
+
+[lang=ar] .nameProduct {
+  direction: ltr;
+}
+
+[lang=ar] .discount {
+  width: 420px;
+}
+
+@include medium {
+  [lang=ar] .discount {
+    width: 340px;
+  }
+}
+
+[lang=ar] .arrow {
+  rotate: 180deg;
+}
+
+// Hungarian styles
+[lang=hu] {
+  .discount {
+    width: 500px;
+  }
+}
+
+@include medium {
+  [lang=hu] {
+    .discount {
+      width: 400px;
+    }
+  }
+}
+
+// Japanese styles
+@include medium {
+  [lang=ja] {
+    .discount {
+      width: 300px;
+    }
+  }
+}
+
+// French styles
+[lang=fr] .discount {
+  width: 450px;
+  font-size: 2rem;
+  line-height: 50px;
+}
+
+@include medium {
+  [lang=fr] .discount {
+    width: 380px;
+    font-size: 1.5rem;
+    line-height: 40px;
+  }
+}
+
+// russia styles
+@include medium {
+  [lang=ru] .discount {
+    width: 320px;
+  }
+}

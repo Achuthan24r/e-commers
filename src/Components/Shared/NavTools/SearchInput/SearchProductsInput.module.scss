@@ -1,0 +1,94 @@
+@import "src/Styles/mixins";
+
+.searchContainer {
+  background-color: var(--secondary-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  padding: 10px 12px 10px 20px;
+  border-radius: 4px;
+  margin-right: 24px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  outline: solid 1px var(--black);
+  border: 6px solid var(--secondary-white);
+  transition: border-color .1s, outline-color .1s, background-color .1s .05s;
+
+  &:hover {
+    outline-color: #ff7b00;
+  }
+
+  &:has(:focus) {
+    outline-color: #ff7b00;
+    background-color: rgba(255, 166, 0, .08);
+  }
+}
+
+.searchContainer>input {
+  all: unset;
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 18px;
+  width: 100%;
+}
+
+.searchContainer>button {
+  all: unset;
+  position: relative;
+}
+
+.searchContainer>button::before {
+  content: '';
+  position: absolute;
+  left: 2.3px;
+  top: 2.7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.searchContainer>button>svg {
+  width: 18px;
+  height: 18px;
+  transition: fill .1s;
+  fill: #757575;
+}
+
+.searchContainer:has(:focus)>button>svg {
+  fill: var(--black);
+}
+
+.searchContainer>button:active svg {
+  fill: var(--black);
+}
+
+.searchContainer>button:active::before {
+  background-color: var(--white);
+}
+
+.searchContainer>button:focus svg {
+  fill: var(--black)
+}
+
+// Arabic styles
+[lang=ar] .searchContainer {
+  padding: 10px 12px;
+  direction: rtl;
+}
+
+@include medium {
+  [lang=ar] .searchContainer {
+    padding: 6px 12px 6px 18px;
+    width: 190px;
+  }
+}
+
+// Hungarian styles
+@include medium {
+  [lang=hu] .searchContainer {
+    padding: 6px 12px 6px 18px;
+    width: 220px;
+  }
+}

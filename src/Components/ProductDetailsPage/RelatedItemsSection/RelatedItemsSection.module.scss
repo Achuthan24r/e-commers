@@ -1,0 +1,11 @@
+@import "src/Styles/mixins";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section [data-event-name] {
+  color: var(--dark-tomato);
+}

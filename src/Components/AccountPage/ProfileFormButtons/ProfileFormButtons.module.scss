@@ -1,0 +1,66 @@
+@import "src/Styles/mixins";
+
+.buttons {
+  align-self: flex-end;
+}
+
+@include very-small {
+  .buttons {
+    align-self: normal;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+.buttons>a {
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 4px;
+  margin-inline-end: 16px;
+  color: var(--black);
+
+  &:hover {
+    color: var(--tomato);
+  }
+
+  &:focus-visible {
+    color: var(--tomato);
+    text-decoration: underline;
+  }
+}
+
+@include small {
+  .buttons>a {
+    font-size: .9rem;
+  }
+}
+
+.buttons>button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  background-color: var(--dark-tomato);
+  border: solid 2px var(--dark-tomato);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color .2s, color .2s;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--white);
+    color: var(--dark-tomato);
+  }
+}
+
+@include medium {
+  .buttons>button {
+    padding: 12px 30px;
+    font-size: .9rem;
+  }
+}

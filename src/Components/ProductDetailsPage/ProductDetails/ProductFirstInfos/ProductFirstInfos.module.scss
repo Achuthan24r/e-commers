@@ -1,0 +1,64 @@
+@import "src/Styles/mixins";
+
+.productName {
+  font: 600 1.5rem/24px "Inter", sans-serif;
+  letter-spacing: .03rem;
+}
+
+.rateAndReviews {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
+@include very-small {
+  .rateAndReviews {
+    flex-direction: column;
+  }
+}
+
+/* [Stars] */
+.rateAndReviews>* {
+  gap: 6px;
+}
+
+.reviews {
+  font-size: .875rem;
+  color: var(--dark-gray);
+}
+
+.verticalLine {
+  height: 16px;
+  border-right: solid 2px var(--dark-gray);
+}
+
+@include very-small {
+  .verticalLine {
+    display: none;
+  }
+}
+
+.greenText {
+  font-size: .875rem;
+  color: var(--green);
+}
+
+.price {
+  display: block;
+  font: 400 1.5rem "Inter", sans-serif;
+  letter-spacing: .03rem;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.description {
+  font-size: .875rem;
+  max-width: 400px;
+}
+
+@include large {
+  .description {
+    max-width: 800px;
+  }
+}

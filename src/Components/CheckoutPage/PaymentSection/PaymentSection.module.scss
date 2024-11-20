@@ -1,0 +1,58 @@
+@import "src/Styles/mixins";
+
+.paymentSection {
+  max-width: 483px;
+  flex: 1;
+}
+
+@include medium {
+  .paymentSection {
+    max-width: 80vw;
+    width: 80vw;
+  }
+}
+
+@include small {
+  .paymentSection {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 40px;
+  }
+}
+
+.submitPaymentButton {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  outline: none;
+  background-color: var(--dark-tomato);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 16px 48px;
+  border-radius: 4px;
+  margin-top: 34px;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition: background-color .2s;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline-color: var(--tomato);
+    color: var(--very-dark-gray);
+    background: transparent;
+    color: var(--tomato);
+  }
+
+  &:not(:focus-visible):hover {
+    background: var(--tomato);
+  }
+}
+
+@include small {
+  .submitPaymentButton {
+    font-size: .8rem;
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 10px;
+  }
+}

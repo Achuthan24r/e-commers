@@ -1,0 +1,156 @@
+@import "src/Styles/mixins";
+
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 80px 0;
+  position: relative;
+}
+
+@include medium {
+  .footer {
+    padding: 60px 0;
+  }
+}
+
+.sections {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+  gap: 60px;
+}
+
+@media (max-width: 1300px) {
+  .sections {
+    gap: 40px;
+  }
+}
+
+@include small {
+  .sections {
+    justify-content: center;
+  }
+}
+
+.sections>section a {
+  position: relative;
+  outline: none;
+
+  &:hover {
+    color: var(--white);
+  }
+
+  &:focus-visible {
+    color: var(--orange-degree2);
+  }
+}
+
+.sections>section a:not(:has(svg))::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange-degree2);
+  transition: width .3s .1s;
+}
+
+.sections>section a:focus-visible::after {
+  width: 100%;
+}
+
+.sections>section a:not(:has(svg)):before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background-color: var(--secondary-white);
+  opacity: .5;
+}
+
+.sections>section a:hover::before {
+  color: var(--white);
+  opacity: 1;
+}
+
+.sections>section>b {
+  display: block;
+  margin-bottom: 24px;
+  font-weight: 500;
+  position: relative;
+}
+
+.sections>section :where(p, li, a) {
+  color: var(--secondary-white);
+}
+
+.sections>section>ul>li {
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+}
+
+.sections .section1>b {
+  font: 700 1.5rem/24px "Inter", sans-serif;
+  letter-spacing: .03rem;
+}
+
+.section1>span {
+  display: block;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.section1>p {
+  margin: 24px 0 10px;
+  font-size: 1rem !important;
+}
+
+@media (max-width: 400px) {
+  .sections>section {
+    width: 100%;
+  }
+}
+
+.section2 {
+  width: 175px;
+}
+
+.section5>p {
+  font-weight: 500;
+  font-size: .8rem !important;
+  line-height: 18px;
+  color: var(--medium-light-gray);
+}
+
+.sections>section :where(span, b, p, li, a)::selection {
+  background-color: var(--white) !important;
+}
+
+// Arabic styles
+[lang=ar] .sections>section a:not(:has(svg))::after {
+  left: auto;
+  right: 0;
+}
+
+// French styles
+[lang=fr] .section5>p {
+  max-width: 250px;
+}
+
+[lang=fr] .section1>p {
+  max-width: 250px;
+}
+
+// Hungarian styles
+[lang=hu] .section5>p {
+  max-width: 200px;
+}
+
+[lang=hu] .section1>p {
+  max-width: 250px;
+}

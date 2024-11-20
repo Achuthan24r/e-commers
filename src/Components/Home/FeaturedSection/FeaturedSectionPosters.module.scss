@@ -1,0 +1,45 @@
+@import "src/Styles/mixins";
+
+.posters {
+  margin: 50px 0 100px;
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 1300px) {
+  .posters {
+    display: block;
+  }
+}
+
+.posters>* {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.smallPosters {
+  margin-inline-start: 30px;
+}
+
+@media (max-width: 1300px) {
+  .smallPosters {
+    margin-inline-start: 0;
+    margin-top: 30px;
+  }
+}
+
+.smallerPosters {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+@include small {
+  .smallerPosters {
+    flex-direction: column;
+  }
+}

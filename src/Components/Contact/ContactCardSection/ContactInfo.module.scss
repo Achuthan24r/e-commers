@@ -1,0 +1,79 @@
+@import "src/Styles/mixins";
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.iconHolder {
+  width: 40px;
+  height: 40px;
+  background-color: var(--dark-tomato);
+  @include center-x-y;
+  border-radius: 50%;
+}
+
+.iconHolder>svg {
+  width: 20px;
+  height: 20px;
+}
+
+.headerContent>b {
+  font-weight: 500;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content>p {
+  font-size: .875rem;
+  color: var(--black);
+  position: relative;
+}
+
+.content>p:has(a) {
+  width: min-content;
+  text-wrap: nowrap;
+}
+
+.content>p:first-child {
+  margin-bottom: 10px;
+}
+
+.content>p>a {
+  outline: none;
+  border: none;
+  color: var(--black);
+  text-wrap: wrap;
+}
+
+.content>p>a:hover {
+  color: var(--black);
+
+  &::before {
+    color: var(--black);
+    opacity: 1;
+  }
+}
+
+.content>p>a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  border-bottom: solid 1px var(--black);
+  opacity: .5;
+  transition: border .2s, opacity .2s;
+}
+
+.content>p>a:focus::before {
+  border-color: var(--orange-degree2);
+  border-width: 2px;
+  opacity: 1;
+}

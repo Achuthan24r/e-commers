@@ -1,0 +1,36 @@
+.numberInput {
+  width: fit-content;
+  border-radius: 4px;
+  border: 1px solid #00000066;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s;
+
+  &:hover {
+    border-color: var(--black);
+  }
+
+  &:has(:focus-visible) {
+    border-color: var(--black);
+
+    .buttons>button>svg {
+      fill: var(--black);
+    }
+  }
+}
+
+.numberInput>input {
+  border: none;
+  outline: none;
+  max-width: 40px;
+  padding-inline-start: 10px;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &:focus-visible {
+    color: var(--black);
+  }
+}

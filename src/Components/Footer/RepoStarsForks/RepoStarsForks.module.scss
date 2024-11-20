@@ -1,0 +1,72 @@
+.repoStarsForks {
+  text-decoration: none;
+  position: absolute;
+  bottom: 12px;
+  left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  padding: 4px 10px;
+  outline-offset: -2px;
+  transition: outline-offset .2s, outline-color .2s .1s;
+
+  &:focus-visible {
+    outline: dashed 3px var(--gray-blue);
+    outline-color: var(--blue);
+    outline-offset: 0;
+  }
+}
+
+.repoStarsForks .wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.repoStarsForks:hover .wrapper {
+  outline-color: var(--blue);
+}
+
+.repoStarsForks svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--gray-blue);
+  margin-inline-end: 4px;
+  transition: .1s color;
+}
+
+.number {
+  display: inline-block;
+  color: var(--gray-blue);
+  font-size: 1.1rem;
+  transition: .1s color;
+}
+
+.repoStarsForks .wrapper:nth-child(2) svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--gray-blue);
+}
+
+.repoStarsForks:focus-visible svg {
+  fill: var(--blue) !important;
+}
+
+.repoStarsForks:hover :where(svg, .number) {
+  color: var(--blue) !important;
+  fill: var(--blue) !important;
+}
+
+.repoStarsForks:focus-visible .number {
+  color: var(--blue);
+}
+
+// Arabic styles
+[lang=ar] .repoStarsForks {
+  left: auto;
+  right: 4px;
+
+  &.wrapper {
+    gap: 4px;
+  }
+}

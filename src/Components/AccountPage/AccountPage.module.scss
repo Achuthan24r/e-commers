@@ -1,0 +1,68 @@
+@import "src/Styles/mixins";
+
+.accountPage {
+  margin: 60px 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@include small {
+  .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+.welcomeMessage {
+  font-weight: 400;
+  font-size: .875rem;
+}
+
+.welcomeMessage>a {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  color: var(--dark-tomato);
+  position: relative;
+
+  &:hover,
+  &:focus {
+    color: var(--tomato);
+  }
+
+  &:focus::before {
+    width: 100%;
+  }
+}
+
+.welcomeMessage>a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: var(--tomato);
+  transition: width .3s;
+}
+
+.welcomeMessage>a:hover::before {
+  width: 100%;
+}
+
+.accountPageContent {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--page-margin);
+  gap: 30px;
+}
+
+@include large {
+  .accountPageContent {
+    gap: 0;
+  }
+}

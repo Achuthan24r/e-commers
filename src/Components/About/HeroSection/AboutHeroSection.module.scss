@@ -1,0 +1,91 @@
+@import "src/Styles/mixins";
+
+.heroSection {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+@include medium {
+  .heroSection {
+    flex-direction: column;
+  }
+}
+
+.content {
+  width: 525px;
+  min-width: 500px;
+}
+
+@include large {
+  .content {
+    min-width: auto;
+  }
+}
+
+@include medium {
+  .content {
+    width: 630px;
+  }
+}
+
+@include small {
+  .content {
+    width: 100%;
+  }
+}
+
+.content>h2 {
+  font: 600 3.375rem "Inter", sans-serif;
+  letter-spacing: .06rem;
+  width: fit-content;
+  margin-bottom: 40px;
+}
+
+@include large {
+  .content>h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+}
+
+@include small {
+  .content>h2 {
+    font-size: 2rem;
+  }
+}
+
+.content>p {
+  text-wrap: pretty;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+@include small {
+  .content>p {
+    font-size: .9rem;
+  }
+}
+
+.imgHolder {
+  flex-grow: 1;
+  width: 700px;
+  height: 708px;
+  user-select: none;
+}
+
+@include medium {
+  .imgHolder {
+    max-width: 630px;
+    height: auto;
+  }
+}
+
+@include small {
+  .imgHolder {
+    max-width: 100%;
+  }
+}

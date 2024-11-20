@@ -1,0 +1,187 @@
+@import "src/Styles/mixins";
+
+.contactForm {
+  flex: 1;
+  width: 800px;
+  box-shadow: 0 1px 13px 0 #0000000D;
+  padding: 40px 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+@include medium {
+  .contactForm {
+    width: 100%;
+  }
+}
+
+@include very-small {
+  .contactForm {
+    padding: 40px 20px;
+  }
+}
+
+.inputs {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@include large {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+@include medium {
+  .wrapper {
+    flex-direction: row;
+  }
+}
+
+@include small {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+.input {
+  flex: 1;
+  position: relative;
+}
+
+.input label {
+  color: #515151;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: .8rem;
+  letter-spacing: -.5px;
+  pointer-events: none;
+}
+
+.input:has(:not(:placeholder-shown)) label {
+  display: none;
+}
+
+.input:has(:placeholder-shown) label {
+  display: block;
+}
+
+.input:has([required])>label::after {
+  content: "*";
+  color: var(--tomato);
+}
+
+.input>input,
+.inputs>textarea {
+  border: none;
+  outline: none;
+  width: 235px;
+  height: 50px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  background-color: var(--very-light-gray2);
+  border: solid 2px var(--very-light-gray2);
+
+  &:hover,
+  &:focus {
+    border-color: var(--medium-light-gray);
+  }
+}
+
+.inputs>textarea {
+  resize: none;
+  height: 207px;
+
+  &::placeholder {
+    color: #515151;
+  }
+}
+
+.buttons {
+  align-self: flex-end;
+}
+
+@include small {
+  .buttons {
+    align-self: normal;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.buttons>button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
+.buttons>button[type=reset] {
+  background-color: transparent;
+  padding: 4px;
+  margin-inline-end: 16px;
+  color: var(--black);
+
+  &:hover {
+    color: var(--tomato);
+  }
+
+  &:focus-visible {
+    color: var(--tomato);
+    text-decoration: underline;
+  }
+}
+
+@include small {
+  .buttons>button[type=reset] {
+    font-size: .9rem;
+    margin-inline-end: 0;
+  }
+}
+
+.buttons>button[type=submit] {
+  padding: 16px 48px;
+  border-radius: 4px;
+  background-color: var(--dark-tomato);
+  border: solid 2px var(--dark-tomato);
+  color: var(--white);
+  font-weight: 500;
+  transition: background-color .1s, color .1s;
+
+  &:focus-visible {
+    transition: background-color .1s, color .1s, var(--outline-transition);
+    border: 2px dashed var(--dark-tomato);
+    background-color: var(--white);
+    color: var(--dark-tomato);
+  }
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--dark-tomato);
+  }
+}
+
+@include medium {
+  .buttons>button[type=submit] {
+    padding: 12px 32px;
+    font-size: .9rem;
+  }
+}
+
+// Arabic styles
+[lang=ar] .input>label {
+  left: unset;
+  right: 10px;
+}

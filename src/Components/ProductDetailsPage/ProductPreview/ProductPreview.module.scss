@@ -1,0 +1,71 @@
+@import "src/Styles/mixins";
+
+.images {
+  display: flex;
+  gap: 30px;
+  user-select: none;
+}
+
+@media (max-width: 1400px) {
+  .images {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+}
+
+.previewImgHolder {
+  width: 500px;
+  height: 540px;
+  max-height: 540px;
+  min-height: 540px;
+  border-radius: 4px;
+  flex: 1;
+  background-color: var(--very-light-gray2);
+  border: solid 1px var(--very-light-gray);
+
+  &:hover {
+    border-color: #ff7b00;
+  }
+}
+
+@include large {
+  .previewImgHolder {
+    height: 500px;
+    max-height: 500px;
+    min-height: 500px;
+    // max-height: 500px;
+    @include center-x-y;
+  }
+}
+
+@include small {
+  .previewImgHolder {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .previewImgHolder {
+    height: 410px;
+    max-height: 410px;
+    min-height: 410px;
+  }
+}
+
+.previewImgHolder>img {
+  background-color: var(--very-light-gray2);
+  border-radius: inherit;
+  object-fit: contain;
+}
+
+// Arabic styles
+[dir=rtl] .images {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 1400px) {
+  [dir=rtl] .images {
+    flex-direction: column-reverse;
+  }
+}

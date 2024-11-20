@@ -1,0 +1,50 @@
+@import "src/Styles/mixins";
+
+.products {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline-color: var(--black);
+  outline-offset: 3px;
+
+  &:focus {
+    transition: outline-color .2s .1s, outline-offset .2s ease;
+    outline-color: var(--orange-degree2);
+    outline-offset: 8px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.wrapper>img {
+  width: 54px;
+  height: 54px;
+  user-select: none;
+  object-fit: contain;
+}
+
+.product span {
+  color: var(--black);
+}
+
+.hasNoProducts {
+  color: var(--dark-gray);
+  font-weight: 300;
+}
+
+@include very-small {
+  [lang] .hasNoProducts {
+    font-size: .9rem;
+  }
+}

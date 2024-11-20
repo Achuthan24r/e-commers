@@ -1,0 +1,60 @@
+@import "src/Styles/mixins";
+
+.mobileMenu {
+  background-color: var(--very-dark-gray);
+  filter: contrast(1);
+  position: fixed;
+  right: -300%;
+  top: 0;
+  height: calc(100vh - (100vh - 100%));
+  padding: 40px 20px 20px;
+  padding-inline-end: 140px;
+  padding-block-start: 20px;
+  z-index: 1001;
+  overflow-y: auto;
+  margin-inline-end: 4px;
+  transition: right .5s;
+
+  &.active {
+    transition: right .8s;
+    right: -4px;
+  }
+}
+
+@include small {
+  .mobileMenu {
+    padding-inline-end: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobileMenu {
+    width: 100%;
+  }
+}
+
+.mobileMenu::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.mobileMenu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 2px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, .35);
+  }
+}
+
+.line {
+  width: 130px;
+  height: 2px;
+  margin: 30px 0;
+  border-color: var(--regular-light-gray);
+}
+
+.mobileMenu button span::selection {
+  background-color: var(--white) !important;
+}

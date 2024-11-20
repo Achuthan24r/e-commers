@@ -1,0 +1,29 @@
+.imgHolder {
+  border-radius: 4px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.imgHolder>img {
+  border-radius: inherit;
+}
+
+.info {
+  width: fit-content;
+}
+
+.info>b {
+  font: 500 2rem "Inter", sans-serif;
+  letter-spacing: .04rem;
+  width: fit-content;
+}
+
+.info>p {
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+// Arabic styles
+[lang=ar] .info>p {
+  margin-top: 5px;
+}

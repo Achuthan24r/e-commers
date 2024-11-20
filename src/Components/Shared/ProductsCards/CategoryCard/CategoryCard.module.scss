@@ -1,0 +1,76 @@
+@import "src/Styles/mixins";
+
+.card {
+  -webkit-tap-highlight-color: transparent;
+  scroll-snap-align: start;
+  border-radius: 4px;
+  border: solid 1px #0000004D;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: background-color .2s;
+
+  &:not(:focus-visible):hover {
+    background-color: var(--tomato);
+    border-color: var(--tomato);
+  }
+
+  &:focus-visible {
+    background-color: #db444407;
+    outline-color: var(--tomato);
+  }
+}
+
+.card svg {
+  width: 56px;
+  height: 56px;
+  transition: fill .2s .1s;
+
+  & :where(path, line) {
+    stroke: var(--black);
+  }
+}
+
+.card svg:where([data-fill-hover], [data-stroke-hover]) {
+  transition: fill .2s, stroke .2s;
+}
+
+.card:not(:focus-visible):hover svg[data-fill-hover] {
+  & :where(path, line) {
+    fill: var(--white);
+  }
+}
+
+.card:not(:focus-visible):hover svg[data-stroke-hover] {
+  & :where(path, line) {
+    stroke: var(--white);
+  }
+}
+
+.card:focus-visible svg[data-fill-hover] {
+  & :where(path, line) {
+    fill: var(--tomato);
+  }
+}
+
+.card:focus-visible svg[data-stroke-hover] {
+  & :where(path, line) {
+    stroke: var(--tomato);
+  }
+}
+
+.card span {
+  margin-top: 26px;
+  color: var(--black);
+}
+
+.card:not(:focus-visible):hover span {
+  color: var(--white);
+}
+
+.card:focus-visible span {
+  color: var(--tomato);
+}

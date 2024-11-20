@@ -1,0 +1,133 @@
+@import "src/Styles/mixins";
+
+.productPoster {
+  background-color: var(--black);
+  padding: 54px 50px;
+  display: flex;
+  margin-bottom: 80px;
+}
+
+@include large {
+  .productPoster {
+    flex-direction: column-reverse;
+    padding: 64px 50px;
+  }
+}
+
+@include small {
+  .productPoster {
+    padding: 42px 26px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content>span {
+  font-weight: 600;
+  color: #00FF66;
+}
+
+.content>h2 {
+  font: 600 3rem/3rem "Inter", sans-serif;
+  letter-spacing: -.05rem;
+  color: var(--secondary-white);
+  margin: 20px 0 36px;
+  max-width: 520px;
+}
+
+@include small {
+  .content>h2 {
+    font-size: 2.2rem;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .content>h2 {
+    font-size: 1.6rem;
+    line-height: 30px;
+  }
+}
+
+.content>:where(span, h2)::selection {
+  background-color: var(--white) !important;
+}
+
+.content>a {
+  -webkit-tap-highlight-color: transparent;
+  padding: 16px 48px;
+  border-radius: 4px;
+  background-color: var(--green);
+  color: var(--white);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition: background-color .2s;
+
+  &:hover {
+    background: #00c04d;
+  }
+
+  &:focus-visible {
+    background: transparent;
+    outline-color: #00c04d;
+    color: #00FF66;
+  }
+}
+
+.productHolder {
+  position: relative;
+  z-index: 2;
+  user-select: none;
+}
+
+.productHolder::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 300px;
+  height: 300px;
+  background-color: #ffffffb1;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(130px);
+  -webkit-filter: blur(130px);
+  -moz-filter: blur(130px);
+  -o-filter: blur(130px);
+  -ms-filter: blur(130px);
+}
+
+@media (max-width: 520px) {
+  .productHolder::before {
+    display: none;
+  }
+}
+
+.productHolder img {
+  min-width: 450px;
+  max-width: 500px;
+  object-fit: contain;
+}
+
+@include large {
+  .productHolder {
+    margin: 0 auto;
+
+    & img {
+      min-width: 200px;
+    }
+  }
+}
+
+// Arabic styles
+[lang=ar] .content>h2 {
+  line-height: 1.4;
+}

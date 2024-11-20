@@ -1,0 +1,59 @@
+@import "src/Styles/mixins";
+
+.form {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--medium-light-gray);
+  width: fit-content;
+
+  &:has(:focus) {
+    border-color: var(--white);
+
+    & input {
+      color: var(--white);
+    }
+  }
+}
+
+.form>input {
+  outline: none;
+  border: none;
+  color: var(--medium-light-gray);
+  background-color: transparent;
+  padding: 12px 0 12px 0;
+  padding-inline-start: 16px;
+}
+
+.form>button {
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+}
+
+.form svg {
+  width: 22px;
+  height: 22px;
+
+  & path {
+    stroke: var(--medium-light-gray);
+  }
+}
+
+.form:has(:focus) svg {
+  & path {
+    stroke: var(--white);
+  }
+}
+
+.form>input::selection {
+  background-color: var(--white) !important;
+}
+
+// Arabic styles
+[lang=ar] .form {
+  direction: rtl;
+}

@@ -1,0 +1,16 @@
+@import "src/Styles/mixins";
+
+.aboutPage {
+  margin: var(--page-margin);
+}
+
+.container {
+  width: calc(var(--container-width) + 7.5%);
+  margin-inline-start: calc(15% / 2);
+}
+
+@include medium {
+  .container {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,51 @@
+@import "src/Styles/mixins";
+
+.ourMembersSection {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  margin-bottom: 100px;
+  padding-bottom: 10px;
+}
+
+@include large {
+  .ourMembersSection {
+    gap: 20px;
+  }
+}
+
+@include medium {
+  .ourMembersSection {
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    gap: 40px;
+  }
+}
+
+.ourMembersSection::-webkit-scrollbar {
+  display: none;
+}
+
+// [Member Cards]
+.ourMembersSection>* {
+  min-width: calc((100% / 3 - 40px) + (40px / 3));
+}
+
+@include medium {
+  .ourMembersSection>* {
+    width: 360px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ourMembersSection>* {
+    min-width: 100%;
+  }
+}
+
+@include very-small {
+  .ourMembersSection>* {
+    width: 100%;
+  }
+}

@@ -1,0 +1,29 @@
+@import "src/Styles/mixins";
+
+.checkoutPage {
+  margin: 60px 0 160px;
+}
+
+.checkoutPage>form {
+  margin-top: 60px;
+}
+
+.checkoutPageContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+@include medium {
+  .checkoutPageContent {
+    gap: 40px;
+  }
+}
+
+@include small {
+  .checkoutPageContent {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

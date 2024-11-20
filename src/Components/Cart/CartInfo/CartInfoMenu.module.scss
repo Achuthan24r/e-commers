@@ -1,0 +1,97 @@
+@import "src/Styles/mixins";
+
+.menu {
+  border: 1px solid var(--black);
+  width: 470px;
+  max-width: 470px;
+  min-width: 300px;
+  border-radius: 4px;
+  padding: 30px 20px;
+}
+
+@media (max-width: 650px) {
+  .menu {
+    width: 100%;
+  }
+}
+
+.menu>b {
+  font-weight: 500;
+  font-weight: 1.25rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.content .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.content .item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  width: 100%;
+  border-bottom: solid 1px var(--regular-light-gray);
+}
+
+.menu>button {
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  border: none;
+  outline: none;
+  padding: 16px 48px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--dark-tomato);
+  color: var(--white);
+  width: fit-content;
+  margin: 0 auto;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition: background .2s;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline-color: var(--tomato);
+    color: var(--very-dark-gray);
+    background: transparent;
+    color: var(--tomato);
+  }
+
+  &:not(:focus-visible):hover {
+    background: var(--tomato);
+  }
+
+  &:active {
+    scale: var(--button-active-scale);
+  }
+}
+
+@include small {
+  .menu>button {
+    font-size: .8rem;
+    padding: 12px 20px;
+  }
+}
+
+// Hungarian styles
+[lang=hu] .menu>button {
+  font-size: .9rem;
+}
+
+@include small {
+  [lang=hu] .menu>button {
+    font-size: .8rem;
+    padding: 16px 20px;
+  }
+}

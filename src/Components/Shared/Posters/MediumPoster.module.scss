@@ -1,0 +1,131 @@
+@import "src/Styles/mixins";
+
+.midPoster {
+  background-color: var(--black);
+  height: 600px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  padding: 40px 30px 0;
+  padding-top: 60px;
+  display: flex;
+  justify-content: flex-end;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-origin: content-box;
+}
+
+@include small {
+  .midPoster {
+    padding-top: 30px;
+  }
+}
+
+@include very-small {
+  .midPoster {
+    padding: 20px 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .midPoster {
+    height: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .midPoster {
+    height: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .midPoster {
+    height: 340px;
+  }
+}
+
+.content {
+  width: 242px;
+  margin-bottom: 30px;
+}
+
+.content>b {
+  color: var(--white);
+  font: 600 1.5rem/24px "Inter", sans-serif;
+}
+
+.content>p {
+  margin: 6px 0 12px;
+  color: var(--secondary-white);
+  font-size: .8rem;
+  line-height: 18px;
+}
+
+.shopNow {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+  color: var(--secondary-white);
+  font-size: 1rem;
+  width: fit-content;
+  position: relative;
+
+  &:not(:focus-visible):hover::before {
+    height: calc(100% + 10px);
+    opacity: .3;
+    transition: height .2s, opacity .2s;
+  }
+
+  &:focus-visible {
+    color: var(--orange-degree2);
+
+    &::before {
+      background-color: var(--orange-degree2);
+    }
+  }
+}
+
+@include small {
+  .shopNow {
+    font-size: .9rem;
+  }
+}
+
+.shopNow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--secondary-white);
+  transition: height .3s, opacity .2s .2s;
+}
+
+.content :where(b, p)::selection,
+.shopNow::selection {
+  background-color: var(--white) !important;
+}
+
+// Arabic styles
+[lang=ar] .midPoster {
+  align-items: flex-end;
+}
+
+[lang=ar] .content {
+  direction: rtl;
+  background-color: #000000aa;
+  padding: 14px;
+  width: 280px;
+}
+
+@include small {
+  [lang=ar] .content {
+    width: 100%;
+  }
+}

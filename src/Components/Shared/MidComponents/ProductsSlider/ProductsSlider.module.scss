@@ -1,0 +1,43 @@
+@import "src/Styles/mixins";
+
+.productsSlider {
+  display: flex;
+  gap: 30px;
+  overflow: auto hidden;
+  scrollbar-width: none;
+  margin-bottom: 50px;
+  position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.productsSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.productsSlider>* {
+  flex: 0 0 auto;
+  width: calc((100% / 4 - 30px) + (30px / 4));
+}
+
+@media (max-width: 1300px) {
+  .productsSlider>* {
+    width: calc((100% / 3 - 30px) + (30px / 3));
+  }
+}
+
+@include medium {
+  .productsSlider>* {
+    width: calc((100% / 2 - 30px) + (30px / 2));
+  }
+}
+
+@media (max-width: 600px) {
+  .productsSlider>* {
+    width: 100%;
+  }
+}
+
+.productsSlider>*:last-child {
+  margin-inline-end: 0;
+}

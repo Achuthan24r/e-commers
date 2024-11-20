@@ -1,0 +1,38 @@
+.userContainer {
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  padding: 6px;
+  cursor: pointer;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: 0;
+
+  &:focus-visible {
+    transition: opacity .3s, var(--outline-transition);
+    outline: 2px dashed var(--very-dark-gray);
+    outline-offset: 3px;
+    color: var(--very-dark-gray);
+  }
+
+  &.active {
+    background-color: var(--dark-tomato);
+    fill: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.userContainer>svg {
+  width: 20px;
+  height: 20px;
+  transition: fill .2s;
+}
+
+.userContainer:not(.active):hover>svg {
+  fill: #6f6f6f;
+}
+
+.userContainer.active>svg {
+  scale: .7;
+}

@@ -1,0 +1,26 @@
+@import "src/Styles/mixins";
+
+.inputs {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+}
+
+@include large {
+  .wrapper {
+    gap: 20px;
+  }
+}
+
+.passwordInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

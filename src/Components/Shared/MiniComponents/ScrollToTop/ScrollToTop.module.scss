@@ -1,0 +1,51 @@
+@import '../../../../Styles/mixins.scss';
+
+.scrollTopButton {
+  -webkit-tap-highlight-color: transparent;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff6e61;
+  font-size: 20px;
+  padding: 10px;
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  z-index: 500;
+  padding: 15px;
+  border-width: 6px;
+  bottom: 30px;
+  right: 30px;
+  pointer-events: all;
+  transition: opacity .3s, background-color .25s, border-radius .25s .1s;
+
+  &.hide:not(:focus-visible) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    background-color: #ff4d3d;
+    border-radius: 20%;
+  }
+
+  &:hover {
+    background-color: #ff4d3d;
+  }
+}
+
+@include small {
+  .scrollTopButton {
+    display: none;
+  }
+}
+
+.scrollTopButton>svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+// Arabic styles
+[lang=ar] .scrollTopButton {
+  bottom: 100px;
+}

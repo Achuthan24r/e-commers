@@ -1,0 +1,11 @@
+@import "src/Styles/mixins.scss";
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: translateX(50px);
+}

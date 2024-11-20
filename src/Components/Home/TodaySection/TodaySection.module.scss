@@ -1,0 +1,60 @@
+@import "src/Styles/mixins";
+
+.todaysSection {
+  margin-bottom: 170px;
+}
+
+@include small {
+  .todaysSection {
+    margin-bottom: 100px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 87px;
+}
+
+@include small {
+  .wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.viewProductsBtn {
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: fit-content;
+  white-space: nowrap;
+  background: var(--dark-red);
+  color: var(--white);
+  padding: 12px 48px;
+  margin: 0 auto;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background .2s;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline-color: var(--tomato);
+    color: var(--very-dark-gray);
+    background: transparent;
+    color: var(--tomato);
+  }
+
+  &:not(:focus-visible):hover {
+    background: var(--tomato);
+  }
+}
+
+@include very-small {
+  .viewProductsBtn {
+    padding: 12px 24px;
+  }
+}

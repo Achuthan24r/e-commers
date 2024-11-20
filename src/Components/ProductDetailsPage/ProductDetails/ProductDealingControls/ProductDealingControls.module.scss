@@ -1,0 +1,19 @@
+@import "src/Styles/mixins";
+
+.dealing {
+  display: flex;
+  gap: 20px;
+  margin: 18px 0 54px;
+}
+
+@media (max-width: 480px) {
+  .dealing {
+    flex-direction: column;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

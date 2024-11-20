@@ -1,0 +1,136 @@
+@import "src/Styles/mixins";
+
+.languageSelector {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: -2px;
+
+  &:focus {
+    transition: opacity .3s, var(--outline-transition);
+    outline: 2px dashed var(--orange-degree2);
+    outline-offset: 0;
+
+    .currentOption span {
+      color: var(--orange-degree2);
+    }
+
+    &>svg {
+      fill: var(--orange-degree2);
+    }
+  }
+}
+
+.languageSelector .currentOption {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 11px;
+  background-color: transparent;
+  padding-inline-end: 10px;
+}
+
+.currentOption>img {
+  width: 22px;
+  min-width: 22px;
+  object-fit: contain;
+}
+
+.languageSelector>svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--white);
+}
+
+.languageSelector .menu {
+  position: absolute;
+  left: -64px;
+  top: 62px;
+  background-color: var(--black);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.languageSelector .menu .option {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 8px 11px;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: -4px;
+
+  &:focus-visible {
+    transition: opacity .3s, var(--outline-transition);
+    outline: 2px dashed var(--orange-degree2);
+    outline-offset: -2px;
+
+    &>span {
+      color: var(--orange-degree2);
+    }
+  }
+
+  &:hover {
+    color: var(--black);
+    background-color: var(--white);
+  }
+}
+
+.option>span {
+  width: 70px;
+  text-align: start;
+  text-wrap: nowrap;
+}
+
+.option>img {
+  width: 22px;
+  object-fit: contain;
+}
+
+// Arabic styles
+[lang=ar] .option>span {
+  font-weight: bold;
+}
+
+[lang=ar] .languageSelector .menu {
+  top: 61px;
+  left: 0;
+}
+
+// Russian styles
+[lang=ru] .languageSelector .menu {
+  left: -65px;
+}
+
+// French styles
+[lang=fr] .languageSelector .menu {
+  left: -52px;
+}
+
+// Hungarian styles
+[lang=hu] .languageSelector .menu {
+  left: -55px;
+}
+
+// Japanese styles
+[lang=ja] .languageSelector .menu {
+  left: -72px;
+}
+
+// Hindi styles
+[lang=hi] .languageSelector .menu {
+  left: -83px;
+}

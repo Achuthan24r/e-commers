@@ -1,0 +1,32 @@
+@import "src/Styles/mixins";
+
+.billingDetailsSection {
+  max-width: 470px;
+}
+
+@include medium {
+  .billingDetailsSection {
+    max-width: 360px;
+  }
+}
+
+@include medium {
+  .billingDetailsSection {
+    max-width: 80vw;
+    width: 80vw;
+  }
+}
+
+@include small {
+  .billingDetailsSection {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.billingDetailsSection>h2 {
+  font-family: Inter;
+  font: 500 2.25rem "Inter", sans-serif;
+  letter-spacing: .04rem;
+  margin-bottom: 30px;
+}

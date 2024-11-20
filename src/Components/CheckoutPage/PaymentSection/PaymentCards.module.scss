@@ -1,0 +1,27 @@
+.images {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  top: 3px;
+}
+
+.images a {
+  width: 42px;
+  height: 28px;
+  user-select: none;
+  position: relative;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: 0;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline: 2px dashed var(--very-dark-gray);
+    outline-offset: 3px;
+    color: var(--very-dark-gray);
+  }
+}
+
+.images img {
+  object-fit: contain;
+}

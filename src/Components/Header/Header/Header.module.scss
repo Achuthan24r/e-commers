@@ -1,0 +1,139 @@
+@import "src/Styles/mixins";
+
+.header {
+  padding: 4px 14px 18px 14px;
+  margin-top: 30px;
+  border-bottom: 1px var(--medium-light-gray) solid;
+}
+
+@include medium {
+  .header {
+    padding: 10px 0 14px 10px;
+  }
+}
+
+@include small {
+  .header {
+    padding: 10px 0 14px 50px;
+  }
+}
+
+.container {
+  width: calc(var(--container-width) + 2%);
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 26% 1fr;
+}
+
+@include large {
+  .container {
+    grid-template-columns: unset;
+  }
+}
+
+@include small {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--container-mobile-width);
+  }
+}
+
+.container h1 {
+  width: fit-content;
+  font-size: 1.5rem;
+}
+
+.container h1>a {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  color: var(--black);
+  position: relative;
+}
+
+.container>h1::first-letter {
+  transition: color .2s;
+}
+
+.container>h1:has(:focus)::first-letter {
+  color: var(--orange-degree2);
+}
+
+.container h1>a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange-degree2);
+  transition: width .3s .1s;
+}
+
+.container h1:has(:focus)>a::before {
+  width: 100%;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@include medium {
+  .headerContent {
+    margin-top: 10px;
+  }
+}
+
+@include small {
+  .headerContent {
+    display: none;
+  }
+}
+
+// Arabic & Japanese styles
+@media (max-width: 1300px) {
+  :where([lang=ar], [lang=ja]) .container {
+    grid-template-columns: 17% 1fr;
+  }
+}
+
+@include large {
+  :where([lang=ar], [lang=ja]) .container {
+    grid-template-columns: unset;
+  }
+}
+
+// Japanese styles
+@include medium {
+  [lang=ja] .headerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+// French styles
+[lang=fr] .container {
+  width: var(--container-width);
+}
+
+// Hungarian styles
+[lang=hu] .container {
+  width: calc(var(--container-width) - 2%);
+  grid-template-columns: 17% 1fr;
+}
+
+@include large {
+  [lang=hu] .container {
+    grid-template-columns: unset;
+  }
+}
+
+// Russian styles
+[lang=ru] .container {
+  width: calc(var(--container-width) - 2%);
+}

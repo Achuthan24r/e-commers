@@ -1,0 +1,57 @@
+@import "src/Styles/mixins";
+
+.dropDownMenu {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nameMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform .3s;
+  cursor: inherit;
+  font-size: 1rem;
+}
+
+.nameMenu>button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.nameMenu button.active svg {
+  transform: rotate(90deg);
+}
+
+.nameMenu button svg {
+  width: 10px;
+  height: 10px;
+}
+
+.menu {
+  overflow: hidden;
+  min-height: 0;
+  height: 0;
+  transition: height .5s;
+
+  &.active {
+    height: 174px;
+  }
+
+  &:has(:focus-visible) {
+    transition: height 0s;
+  }
+}
+
+// Arabic styles
+[lang=ar] .nameMenu svg {
+  transform: rotate(180deg);
+}
+
+[lang=ar] .nameMenu .active svg {
+  transform: rotate(90deg);
+}
+
+[lang=ar] .menu.active {
+  height: 148px;
+}

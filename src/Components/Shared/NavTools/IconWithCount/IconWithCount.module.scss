@@ -1,0 +1,53 @@
+.link {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  outline: dashed 0 var(--regular-light-gray);
+  outline-offset: 0;
+
+  &:focus-visible {
+    transition: opacity .3s, var(--outline-transition);
+    outline: 2px dashed var(--very-dark-gray);
+    outline-offset: 3px;
+    color: var(--very-dark-gray);
+  }
+}
+
+.wrapper {
+  width: inherit;
+  height: inherit;
+}
+
+.link svg {
+  width: inherit;
+  height: inherit;
+  fill: var(--black);
+  transition: fill .2s;
+}
+
+.link:hover svg {
+  fill: #6f6f6f;
+}
+
+.count {
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  top: -12px;
+  background-color: var(--dark-tomato);
+  color: #fff;
+  border-radius: 50%;
+  font-size: .6rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  z-index: 2;
+  transform: scale(.6);
+}

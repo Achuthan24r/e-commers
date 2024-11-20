@@ -1,0 +1,123 @@
+@import "src/Styles/mixins";
+
+.notFoundPage {
+  margin-top: 60px;
+}
+
+.wrapper {
+  width: fit-content;
+  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper>b {
+  font: 500 6.875rem "Inter", sans-serif;
+  letter-spacing: .03rem;
+  text-align: center;
+}
+
+@include large {
+  .wrapper>b {
+    font-size: 6rem;
+  }
+}
+
+@include medium {
+  .wrapper>b {
+    font-size: 5rem;
+  }
+}
+
+@include small {
+  .wrapper>b {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper>b {
+    font-size: 2.5rem;
+  }
+}
+
+.wrapper>p {
+  margin: 20px 0 70px 0;
+  line-height: 24px;
+}
+
+@include small {
+  .wrapper>p {
+    margin: 20px 0 40px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper>p {
+    font-size: .9rem;
+  }
+}
+
+.wrapper>a {
+  display: block;
+  width: fit-content;
+  white-space: nowrap;
+  background: var(--dark-red);
+  color: var(--white);
+  padding: 12px 48px;
+  margin: 0 auto;
+  border-radius: 4px;
+  font-weight: 500;
+  outline: solid 2px transparent;
+  outline-offset: -2px;
+  transition: background .2s;
+
+  &:focus-visible {
+    transition: var(--outline-transition);
+    outline-color: var(--tomato);
+    color: var(--very-dark-gray);
+    background: transparent;
+    color: var(--tomato);
+  }
+
+  &:not(:focus-visible):hover {
+    background: var(--tomato);
+  }
+}
+
+@include small {
+  .wrapper>a {
+    font-size: .8rem;
+  }
+}
+
+// Multi-language styles
+:where([lang=hu], [lang=ja]) .wrapper>b {
+  font-size: 5.4rem;
+}
+
+@include large {
+  :where([lang=hu], [lang=ja]) .wrapper>b {
+    font-size: 4.5rem;
+  }
+}
+
+@include medium {
+  :where([lang=hu], [lang=ja]) .wrapper>b {
+    font-size: 3.8rem;
+  }
+}
+
+@include small {
+  :where([lang=hu], [lang=ja]) .wrapper>b {
+    font-size: 2rem;
+  }
+}
+
+@include very-small {
+  :where([lang=hu], [lang=ja]) .wrapper>b {
+    font-size: 1.4rem;
+  }
+}
